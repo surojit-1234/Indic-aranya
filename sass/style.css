@@ -36,7 +36,7 @@ body {
 .btn-warning {
   position: relative;
   background-color: #F79521 !important;
-  color: white !important;
+  color: #F5F1DD !important;
   font-size: 18px;
   font-weight: 500;
   position: relative;
@@ -317,18 +317,189 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  overflow: hidden;
   border-bottom-left-radius: 80px;
   border-top-right-radius: 80px;
 }
 .home-team-wrap .img-wrap {
+  border-bottom-left-radius: 80px;
+  border-top-right-radius: 80px;
   background-image: linear-gradient(to right, rgba(5, 68, 51, 0.8156862745) 36%, rgba(35, 94, 34, 0.6862745098) 63%, rgba(57, 115, 19, 0.6784313725) 70%, rgba(247, 151, 33, 0.537254902) 100%) !important;
 }
 .home-team-wrap .left-heading {
-  font-size: 60px;
+  font-size: 80px;
   line-height: 1;
   margin: 0;
   color: #F5F1DD;
+}
+.home-team-wrap .leaf-img {
+  position: absolute;
+  top: -63%;
+  right: 0;
+  display: inline-block;
+}
+.home-team-wrap .leaf-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #F5F1DD;
+  border-radius: 20%;
+  animation: leafAnim 10s linear infinite;
+}
+@keyframes leafAnim {
+  0% {
+    height: 0;
+    width: 0;
+  }
+  50% {
+    height: 100%;
+    width: 100%;
+  }
+  100% {
+    height: 0;
+    width: 0;
+  }
+}
+
+.map-wrap {
+  border-bottom: 1px solid #146B54;
+}
+.map-wrap .kailash, .map-wrap .akhil {
+  border: 1px solid #78C145;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.map-wrap .kailash .dot, .map-wrap .akhil .dot {
+  position: absolute;
+  height: 180px;
+  width: 180px;
+  z-index: 2;
+  opacity: 0;
+  border: 10px solid #78C145;
+  background: #146B54;
+  border-radius: 50%;
+  animation: pulse 2s ease-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 1.2s;
+}
+.map-wrap .kailash {
+  border-radius: 50%;
+  width: 16%;
+  position: absolute;
+  top: 21%;
+  left: 52%;
+}
+.map-wrap .kailash img {
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid #78C145;
+  position: relative;
+  z-index: 1;
+  z-index: 3;
+}
+.map-wrap .akhil {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 35%;
+  right: 25%;
+  width: 16%;
+}
+.map-wrap .akhil img {
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid #78C145;
+  position: relative;
+  z-index: 1;
+  z-index: 3;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.map-wrap .member-info h1 {
+  font-size: 80px;
+  color: #000000;
+  font-family: "Roboto", serif;
+}
+.map-wrap .member-info .name {
+  font-size: 30px;
+  color: #000000;
+  font-family: "Montserrat", serif;
+}
+.map-wrap .member-info .role {
+  font-size: 22px;
+  font-family: "Montserrat", serif;
+  font-style: italic;
+}
+.map-wrap .member-info .desc {
+  font-size: 22px;
+  font-family: "Montserrat", serif;
+}
+
+.knowledge-slider .card {
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 35px;
+}
+.knowledge-slider .card img {
+  border-top-right-radius: 30px;
+}
+.knowledge-slider .card .content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.knowledge-slider .card .content h5 {
+  font-size: 30px;
+  font-family: "Montserrat", serif;
+  text-align: center;
+}
+.knowledge-slider .card .content p {
+  font-family: "Montserrat", serif;
+  font-size: 16px;
+  text-align: center;
+}
+.knowledge-slider .card .content a {
+  font-family: "Montserrat", serif;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000000;
+}
+.knowledge-slider .card .content a i {
+  color: #F79521;
+  transform: rotate(45deg);
+  transition: 0.4s;
+  margin: 5px;
+}
+.knowledge-slider .card .content a:hover {
+  color: #F79521;
+}
+.knowledge-slider .card .content a:hover i {
+  transform: rotate(90deg);
+}
+.knowledge-slider .slick-next, .knowledge-slider .slick-prev {
+  font-size: 0;
+  line-height: 0;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: -10px \9 ;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: 0;
+  z-index: 3;
+  background: #F79521;
 }
 
 /*-----=================Responsives==========================------*/
@@ -347,6 +518,21 @@ body {
   }
   .scrollingTextContainer {
     padding: 0.3% 0;
+  }
+  .home-team-wrap .left-heading {
+    font-size: 60px;
+  }
+  .map-wrap .member-info h1 {
+    font-size: 60px;
+  }
+  .map-wrap .member-info .desc {
+    font-size: 16px;
+  }
+  .map-wrap .member-info .name {
+    font-size: 25px;
+  }
+  .map-wrap .member-info .role {
+    font-size: 20px;
   }
 }
 @media (max-width: 992px) {
@@ -375,9 +561,6 @@ body {
   }
   .nav-button button {
     width: 90%;
-  }
-  .navbar-collapse {
-    padding: 70% 0;
   }
 }
 @media (max-width: 767px) {
